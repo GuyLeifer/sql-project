@@ -1,0 +1,41 @@
+.App {
+    display: flex;
+}
+.header {
+    display: block;
+    text-align: center;
+}
+.topSongs {
+    flex: 25%;
+    text-align: center;
+}
+.topArtists {
+    flex: 25%;
+    text-align: center;
+}
+.topAlbums {
+    flex: 25%;
+    text-align: center;
+}
+.topPlaylists {
+    flex: 25%;
+    text-align: center;
+}
+.song span {
+    margin: 10px;
+}
+
+.songTitle {
+    right: 0;
+}
+.songTitle:hover {
+    font-size: 120%;
+    color: blue;
+}
+.songLength {
+    left: 0;
+}
+.topHeader {
+    text-decoration: underline;
+}
+

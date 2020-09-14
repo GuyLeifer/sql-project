@@ -1,12 +1,23 @@
-import React from 'react';
-import logo from './logo.svg';
+import React, { useState } from 'react';
 import './App.css';
+import Header from './components/Header';
+import TopSongs from './components/TopSongs';
+import TopArtists from './components/TopArtists';
+import TopAlbums from './components/TopAlbums';
+import TopPlaylists from './components/TopPlaylists';
+// import {BrowserRouter as Router,Switch,Route} from "react-router-dom";
 
 function App() {
   return (
-    <div className="App">
-     
-    </div>
+    <>
+      <Header />
+      <div className="App">
+        <TopSongs />
+        <TopArtists />
+        <TopAlbums />
+        <TopPlaylists />
+      </div>
+    </>
   );
 }
 
