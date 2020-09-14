@@ -8,7 +8,7 @@ function TopPlaylists() {
     useEffect(() => {
         (async () => {
             try {
-            const { data } = await axios.get('/top_playlists');
+            const { data } = await axios.get('/top_playlist');
             setPlaylists(data);
             }
             catch(err) {

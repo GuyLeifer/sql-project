@@ -40,6 +40,7 @@
     border: 1px solid lightseagreen;
     margin: 10px;
     padding: 10px;
+    min-width: 200px;
 }
 .topArtists {
     flex: 25%;
@@ -47,6 +48,7 @@
     border: 1px solid lightseagreen;
     margin: 10px;
     padding: 10px;
+    min-width: 200px;
 }
 .topAlbums {
     flex: 25%;
@@ -54,6 +56,7 @@
     border: 1px solid lightseagreen;
     margin: 10px;
     padding: 10px;
+    min-width: 200px;
 }
 .topPlaylists {
     flex: 25%;
@@ -61,6 +64,7 @@
     border: 1px solid lightseagreen;
     margin: 10px;
     padding: 10px;
+    min-width: 200px;
 }
 .song span {
     margin: 10px;
@@ -78,6 +82,14 @@
     font-size: 110%;
     color: lightseagreen;
     font-weight: 600;
+}
+.artistImg {
+    height: 15px;
+    width: 15px;
+}
+.artistImg:hover {
+    height: 100px;
+    width: 100px;
 }
 .album:hover {
     font-size: 110%;

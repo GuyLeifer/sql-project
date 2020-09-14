@@ -4,8 +4,8 @@ USE spotify;
 CREATE TABLE Playlists (
   Playlist_id int not null auto_increment,
   Name varchar(50) not null,
-  Cover_img varchar(255) not null,
-  Created_at date not null,
+  Cover_img varchar(255),
+  Created_at date,
   Upload_at datetime not null default current_timestamp,
   Songs_List varchar(255) not null,
   PRIMARY KEY (Playlist_id)
@@ -81,12 +81,14 @@ CREATE TABLE Interactions (
   FOREIGN KEY (Song_id) references Songs(Song_id)
 );
 
--- INSERT INTO Playlists(Name, Cover_img, Created_at, Upload_at, Songs_List) 
--- VALUES(, , , , );
+INSERT INTO Playlists(Name, Songs_List) 
+VALUES
+('Rock', '[1,2,3,4,5]'),
+('Rock_2', '[2,6,3,7,9]');
 
 INSERT INTO Artists(Name, Cover_img, Created_at, Upload_at) 
 VALUES
-('Green Day', 'image/jpeg;', '2011-03-13 02:53:50' , '2011-03-13 02:53:50' ),
+('Green Day', 'https://i.pinimg.com/originals/88/03/d7/8803d7ec675006ca7c23d244b7ff0104.jpg', '2011-03-13 02:53:50' , '2011-03-13 02:53:50' ),
 ('Coldplay', 'image/jpeg;', '2000-03-13 02:53:50' , '2002-03-13 02:53:50' );
 
 -- INSERT INTO Users(Name, Email, Created_at, Upload_at, Password, Is_Admin, Preferences, Remember_token) 
