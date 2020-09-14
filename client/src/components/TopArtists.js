@@ -9,9 +9,7 @@ function TopArtists() {
         (async () => {
             try {
             const { data } = await axios.get('/top_artists');
-            console.log("data: " + data)
             setArtists(data);
-            console.log("artists: " + artists)
             }
             catch(err) {
                 console.log(err.massage);

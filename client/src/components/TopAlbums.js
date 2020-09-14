@@ -9,7 +9,6 @@ function TopAlbums() {
         (async () => {
             try {
             const { data } = await axios.get('/top_albums');
-            console.log("data: " + data)
             setAlbums(data);
             }
             catch(err) {

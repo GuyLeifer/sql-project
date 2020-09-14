@@ -3,21 +3,19 @@ import YouTube from 'react-youtube';
 
 function Song({song}) {
     function goToLink(link) {
-        const opts = {
-            height: '390',
-            width: '640',
-            // playerVars: {
-            //   // https://developers.google.com/youtube/player_parameters
-              autoplay: 1,
-            };
+        // const opts = {
+        //     height: '390',
+        //     width: '640',
+        //     autoplay: 1,
+        //     };
         return <YouTube
-            videoId={song.YouTube_Link}
-            opts={opts}
+            videoId={link}
+            // opts={opts}
         />
     }
     return (
-        <div className="song">
-           <span className="songTitle" onClick={goToLink(song.YouTube_Ling)}>{song.Title}</span> 
+        <div className="song" onClick={goToLink(song.YouTube_Link)}>
+           <span className="songTitle">{song.Title}</span> 
            <span className="songLength">{song.Length}</span>
         </div>
     )

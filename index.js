@@ -158,6 +158,16 @@ app.post('/playlist', async (req, res) =>{
       });
 });
 
+app.post('/user', async (req, res) =>{
+    mysqlCon.query('INSERT INTO users SET ?',req.body, (error, results, fields) => {
+        if (error) {
+            res.send(error.message);
+            throw error;
+        };
+        res.send(results);
+      });
+});
+
 // PUT Methods
 app.put('/song/:id', async (req, res) =>{
     mysqlCon.query(`UPDATE songs SET ? WHERE song_id = ${req.params.id}`,

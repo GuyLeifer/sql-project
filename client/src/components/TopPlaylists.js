@@ -18,7 +18,7 @@ function TopPlaylists() {
     }, [])
 
     return (
-        <div className="topPlaylists top">
+        <div className="topPlaylists">
             <div className="topHeader">Top Playlists</div>
             {playlists.map(playlist => {
                 return <Playlist playlist={playlist} />
