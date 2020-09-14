@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import './App.css';
 import Header from './components/Header';
+import Login from './components/Login';
 import TopSongs from './components/TopSongs';
 import TopArtists from './components/TopArtists';
 import TopAlbums from './components/TopAlbums';
@@ -11,6 +12,7 @@ function App() {
   return (
     <>
       <Header />
+      <Login />
       <div className="App">
         <TopSongs />
         <TopArtists />
