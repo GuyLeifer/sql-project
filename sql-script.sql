@@ -96,23 +96,24 @@ VALUES
 
 INSERT INTO Albums(Artist_id ,Name, Created_at) 
 VALUES
-(1, 'American Idiot', '2011-03-09');
+(1, 'American Idiot', '2011-03-09'),
+(2, 'Minutes to Midnight', '2007-05-09');
 
 INSERT INTO Songs(Album_id, Artist_id, Youtube_Link, Title, Length, Track_Number, Created_at) 
 VALUES
 ('1','1','h6Z5N0Z6zH0', 'American Idiot' , '02:54', '1', '2013-01-01'),
-('1','1','<iframe width="560" height="315" src="https://www.youtube.com/embed/JMcNzjzw63I" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>', 'Jesus of Suburbia 1', '09:14', '2', '2013-01-01'),
-('1','1','<iframe width="560" height="315" src="https://www.youtube.com/embed/l2hA8g1cNvQ" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>', 'Holiday', '03:53', '3', '2013-01-01'),
-('1','1','<iframe width="560" height="315" src="https://www.youtube.com/embed/Dx1SPxGn-iU" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>', 'Boulevard of Broken Dreams', '04:21', '4', '2013-01-01'),
-('1','1','<iframe width="560" height="315" src="https://www.youtube.com/embed/6HXa2gVj4mg" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>', 'Are We the Waiting' ,'02:43', '5', '2013-01-01'),
-('1','1','<iframe width="560" height="315" src="https://www.youtube.com/embed/jRu0O1J3Y4s" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>', 'St. Jimmy', '02:55', '6', '2013-01-01'),
-('1','1','<iframe width="560" height="315" src="https://www.youtube.com/embed/ZKAwIwjHwZI" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>', 'Give Me Novacaine', '03:26' , '7', '2013-01-01'),
-('1','1','<iframe width="560" height="315" src="https://www.youtube.com/embed/eOv5fF7maFY" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>', 'Shes A Rebel' ,'02:01', '8', '2013-01-01'),
-('1','1','<iframe width="560" height="315" src="https://www.youtube.com/embed/hctq2W1z7Kc" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>', 'Extraordinary Girl' , '03:34', '9', '2013-01-01'),
-('1','1','<iframe width="560" height="315" src="https://www.youtube.com/embed/1fi-MLyBfB0" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>', 'Letterbomb' ,'04:06' , '10' , '2013-01-01'),
-('1','1','<iframe width="560" height="315" src="https://www.youtube.com/embed/ulRXvH8VOl8" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>', 'Wake Me Up When September Ends', '04:46' , '11' , '2013-01-01'),
-('1','1','<iframe width="560" height="315" src="https://www.youtube.com/embed/58hUq7hnueQ" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>', 'Homecoming' , '09:18', '12' , '2013-01-01'),
-('1','1','<iframe width="560" height="315" src="https://www.youtube.com/embed/Z2LC1xrdOaM" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>', 'Whatsername' , '04:12' , '13' , '2013-01-01');
-
+('1','1','JMcNzjzw63I', 'Jesus of Suburbia 1', '09:14', '2', '2013-01-01'),
+('1','1','l2hA8g1cNvQ', 'Holiday', '03:53', '3', '2013-01-01'),
+('1','1','Dx1SPxGn-iU', 'Boulevard of Broken Dreams', '04:21', '4', '2013-01-01'),
+('1','1','6HXa2gVj4mg', 'Are We the Waiting' ,'02:43', '5', '2013-01-01'),
+('1','1','jRu0O1J3Y4s', 'St. Jimmy', '02:55', '6', '2013-01-01'),
+('1','1','ZKAwIwjHwZI', 'Give Me Novacaine', '03:26' , '7', '2013-01-01'),
+('1','1','eOv5fF7maFY', 'Shes A Rebel' ,'02:01', '8', '2013-01-01'),
+('1','1','hctq2W1z7Kc', 'Extraordinary Girl' , '03:34', '9', '2013-01-01'),
+('1','1','1fi-MLyBfB0', 'Letterbomb' ,'04:06' , '10' , '2013-01-01'),
+('1','1','ulRXvH8VOl8', 'Wake Me Up When September Ends', '04:46' , '11' , '2013-01-01'),
+('1','1','58hUq7hnueQ', 'Homecoming' , '09:18', '12' , '2013-01-01'),
+('1','1','Z2LC1xrdOaM', 'Whatsername' , '04:12' , '13' , '2013-01-01'),
+('2','2','Me7TJDHCELk', 'Wake', '01:41', '1', '2015-03-27');
 -- INSERT INTO Interactions(Username_id, Song_id, Is_liked, Play_count, Created_at) 
 -- VALUES(, , , , );

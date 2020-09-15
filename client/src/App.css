@@ -1,4 +1,7 @@
-.App {
+/* .App {
+    display: flex;
+} */
+.homepage {
     display: flex;
 }
 .header {
@@ -113,5 +116,21 @@
     font-size: 200%;
     color: lightseagreen;
     margin-top: 0;
+}
+nav {
+    display: flex;
+    /* position: fixed; */
+    justify-content: space-around;
+    align-items: center;
+    min-height: 10vh;
+    background: rgb(73, 79, 82);
+    color: white;
+}
+.nav-links {
+    width: 50%;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    list-style: none;
 }
 

@@ -10,6 +10,7 @@ function Artist({artist}) {
     useEffect(() => {
         (async() => {
             try {
+            console.log(artistID);
             const { data } = await axios.get(`/artist/${artistID}`);
             setArtistIdentity(data);
             return <ArtistId artist={data}/>
