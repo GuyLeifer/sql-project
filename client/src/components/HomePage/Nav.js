@@ -1,7 +1,5 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
-import Shop from './Shop';
-import About from './About';
 
 function Nav() {
     const navStyle = {
