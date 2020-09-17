@@ -1,4 +1,5 @@
-import React, { useEffect, useState } from 'react'
+import React, { useEffect, useState } from 'react';
+import Carousel from 'styled-components-carousel';
 import axios from 'axios';
 import Album from './Album';
 
@@ -20,9 +21,16 @@ function TopAlbums() {
     return (
         <div className="topAlbums">
             <div className="topHeader">Top Albums</div>
-            {albums.map(album => {
-                return <Album album={album} />
-            })}
+            <Carousel         
+                center
+                infinite
+                showArrows
+                showIndicator
+                slidesToShow={3}>
+                {albums.map(album => {
+                    return <Album album={album} />
+                })}
+            </Carousel>
         </div>
     )
 }

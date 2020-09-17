@@ -78,7 +78,7 @@ app.get('/top_playlist', (req, res) => {
 
 // GET Methods by ID
 app.get('/song/:id', async (req, res) =>{
-    mysqlCon.query('SELECT * FROM songs WHERE song_id = ?',[req.params.id,], (error, results, fields) => {
+    mysqlCon.query('call SongArtistAlbum(?)',[req.params.id,], (error, results, fields) => {
         if (error) {
             res.send(error.message);
             throw error;
@@ -88,17 +88,17 @@ app.get('/song/:id', async (req, res) =>{
 });
 
 app.get('/artist/:id', async (req, res) =>{
-    mysqlCon.query('SELECT * FROM artists WHERE artist_id = ?',[req.params.id,], (error, results, fields) => {
+    mysqlCon.query(`call ArtistAlbum(?)`,[req.params.id], (error, results, fields) => {
         if (error) {
             res.send(error.message);
             throw error;
         };
-        res.send(results);
+        res.send(results[0]);
       });
 });
 
 app.get('/album/:id', async (req, res) =>{
-    mysqlCon.query('SELECT * FROM albums WHERE album_id = ?',[req.params.id,], (error, results, fields) => {
+    mysqlCon.query('SELECT * FROM albums WHERE album_id = ?',[req.params.id], (error, results, fields) => {
         if (error) {
             res.send(error.message);
             throw error;

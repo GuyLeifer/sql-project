@@ -1,4 +1,5 @@
-import React, { useEffect, useState } from 'react'
+import React, { useEffect, useState } from 'react';
+import Carousel from 'styled-components-carousel';
 import axios from 'axios';
 import Song from './Song';
 
@@ -18,12 +19,21 @@ function TopSongs() {
     }, [])
 
     return (
+        
         <div className="topSongs">
             <div className="topHeader">Top Songs</div>
-            {songs.map(song => {
-                return <Song song={song} />
-            })}
+            <Carousel         
+                center
+                infinite
+                showArrows
+                showIndicator
+                slidesToShow={3}>
+                {songs.map(song => {
+                    return <Song song={song} />
+                })} 
+            </Carousel>
         </div>
+       
     )
 }
 

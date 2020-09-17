@@ -1,24 +1,19 @@
-import React from 'react';
-import YouTube from 'react-youtube';
+import React, { useState, useEffect } from 'react';
+import { Link } from 'react-router-dom';
 
 function Song({song}) {
-    function goToLink(link) {
-        console.log(link)
-        const opts = {
-            height: '390',
-            width: '640',
-            autoplay: 1,
-            };
-        return <YouTube
-            videoId={link}
-            opts={opts}
-        />
-    }
+    const [songID, setSongID] = useState("");
+    console.log(song)
     return (
-        <div className="song" onClick= {() => goToLink(song.YouTube_Link)}>
-           <span className="songTitle">{song.Title}</span> 
-           <span className="songLength">{song.Length}</span>
-        </div>
+        <Link to = {`/song/${song.Song_id}`}>
+            <div className="song" >
+                <span className="songTitle">{song.Title}</span> 
+                <span className="songLength">{song.Length}</span>
+                <div>
+                    <iframe src={song.YouTube_Link.replace("watch?", "embed/")} />
+                </div>
+            </div>
+        </Link>
     )
 }
 
