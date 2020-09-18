@@ -9,6 +9,8 @@ import About from './components/HomePage/About';
 import ArtistId from './components/HomePage/ArtistId';
 import AlbumId from './components/HomePage/AlbumId';
 import SongId from './components/HomePage/SongId';
+import PlaylistId from './components/HomePage/PlaylistId';
+import GenericNotFound from './components/GenericNotFound';
 import {BrowserRouter as Router, Switch, Route} from 'react-router-dom';
 
 function App() {
@@ -22,7 +24,10 @@ function App() {
       <Route path="/" exact component = {HomePage} />
       <Route path="/artist/:id" exact component = {ArtistId}/>
       <Route path="/album/:id" exact component = {AlbumId}/>
+      <Route path="/album/:id?artist=:id" exact component = {ArtistId}/>
       <Route path="/song/:id" exact component = {SongId}/>
+      <Route path="/playlist/:id" exact component = {PlaylistId}/>
+      {/* <Route path='*' exact={true} component={GenericNotFound}/> */}
     </Router>
   );
 }

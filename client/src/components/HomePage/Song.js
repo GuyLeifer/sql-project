@@ -10,7 +10,7 @@ function Song({song}) {
                 <span className="songTitle">{song.Title}</span> 
                 <span className="songLength">{song.Length}</span>
                 <div>
-                    <iframe src={song.YouTube_Link.replace("watch?", "embed/")} />
+                    <iframe src={`https://www.youtube.com/embed/${song.YouTube_Link}`}/>
                 </div>
             </div>
         </Link>

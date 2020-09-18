@@ -1,10 +1,16 @@
-import React from 'react'
+import React from 'react';
+import { Link } from 'react-router-dom';
 
 function Playlist({playlist}) {
     return (
-        <div className="playlist">
-           <span className="playlistName">{playlist.Name}</span>
-        </div>
+        <Link to = {`/playlist/${playlist.Playlist_id}`}>
+            <div className="playlist">
+               <span className="playlistName">{playlist.Name}</span>
+               <div className="albumImg">
+                    <img src={playlist.Cover_img}/>
+                </div>
+            </div>
+        </Link>
     )
 }
 

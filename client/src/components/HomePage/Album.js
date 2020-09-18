@@ -8,6 +8,9 @@ function Album({album}) {
             <Link to = {`/album/${album.Album_id}`}>
             <div className="album" onClick={() => setAlbumID(album.Album_id)}>
                <span className="albumName">{album.Name}</span> 
+               <div className="albumImg">
+                    <img src={album.Cover_img}/>
+                </div>
             </div>
             </Link>
     )

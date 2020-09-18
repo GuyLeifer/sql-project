@@ -95,6 +95,15 @@
     height: 120px;
     width: 120px;
 }
+.albumImg img {
+    margin: 10px;
+    height: 100px;
+    width: 100px;
+}
+.albumImg img:hover {
+    height: 120px;
+    width: 120px;
+}
 .album:hover {
     font-size: 110%;
     color: rgb(73, 79, 82);

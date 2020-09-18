@@ -34,7 +34,7 @@ function SongId(match) {
                 <div>Lyrics: {song.Lyrics}</div>
                 <div>YouTube Link: 
                     <div>
-                        <iframe src={song.YouTube_Link}/>
+                    <iframe src={`https://www.youtube.com/embed/${song.YouTube_Link}`}/>
                     </div>
                 </div>
             </div>
