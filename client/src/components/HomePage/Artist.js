@@ -4,7 +4,6 @@ import { Link } from 'react-router-dom';
 
 function Artist({artist}) {
     const [artistID, setArtistID] = useState("");
-    console.log("artist: ", artist)
 
     return (
         <>

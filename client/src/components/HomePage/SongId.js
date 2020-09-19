@@ -21,7 +21,7 @@ function SongId(match) {
         <>
         {song && (
             <div className="info">
-                <div>Song Name: {song.Title}</div>
+                <div>Song Title: {song.Title}</div>
                 <Link to = {`/artist/${song.Artist_id}`}>
                     <div>Artist Name: {song.Artist_name}</div>
                 </Link>
@@ -31,10 +31,10 @@ function SongId(match) {
                 <div>Created At: {song.Song_Created_at}</div>
                 <div>Upload At: {song.Song_Upload_at}</div>
                 <div>Length: {song.Length}</div>
-                <div>Lyrics: {song.Lyrics}</div>
+                <div>Lyrics: <br />{song.Lyrics}</div>
                 <div>YouTube Link: 
                     <div>
-                    <iframe src={`https://www.youtube.com/embed/${song.YouTube_Link}`}/>
+                        <iframe src={`https://www.youtube.com/embed/${song.YouTube_Link}`}/>
                     </div>
                 </div>
             </div>

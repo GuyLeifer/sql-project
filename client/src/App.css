@@ -13,6 +13,12 @@
     color: rgb(73, 79, 82);
     font-size: 220%;
 }
+.about {
+    text-align: center;
+}
+.aboutImg {
+    max-height: 200px;
+}
 .login {
     width: 200px;
     margin: 0 auto;
@@ -137,11 +143,14 @@ nav {
     color: white;
 }
 .nav-links {
-    width: 50%;
+    width: 70%;
     display: flex;
     justify-content: space-around;
     align-items: center;
     list-style: none;
+}
+.navImg {
+    height: 50px;
 }
 .info {
     text-align: center;

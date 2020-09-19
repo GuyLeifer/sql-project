@@ -3,7 +3,7 @@ import { Link } from 'react-router-dom';
 
 function Song({song}) {
     const [songID, setSongID] = useState("");
-    console.log(song)
+    
     return (
         <Link to = {`/song/${song.Song_id}`}>
             <div className="song" >

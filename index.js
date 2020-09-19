@@ -88,7 +88,7 @@ app.get('/song/:id', async (req, res) =>{
 });
 
 app.get('/artist/:id', async (req, res) =>{
-    mysqlCon.query('call ArtistAlbum(?)',[req.params.id], (error, results, fields) => {
+    mysqlCon.query('call ArtistAlbumsSongs(?)',[req.params.id], (error, results, fields) => {
         if (error) {
             res.send(error.message);
             throw error;
