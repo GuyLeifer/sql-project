@@ -426,6 +426,7 @@ Albums.Album_id, Albums.Artist_id, Albums.Name AS Album_name, Albums.Cover_img A
 Song_id, Songs.Album_id, Songs.Artist_id, YouTube_Link, Title, Length, Track_Number, Lyrics, Songs.Created_at AS Song_Created_at, Songs.Upload_at AS Song_Upload_at
 FROM artists 
 LEFT JOIN Albums ON Artists.Artist_id = Albums.Artist_id 
+LEFT JOIN Songs ON Artists.Artist_id = Songs.Artist_id 
 WHERE Artists.artist_id = id;
 END$$
 DELIMITER ;
@@ -459,6 +460,19 @@ FROM Albums
 LEFT JOIN Artists ON Albums.Artist_id = Artists.Artist_id
 LEFT JOIN Songs ON Albums.Album_id = Songs.Album_id
 WHERE Albums.Album_id = id;
+END$$
+
+DROP procedure IF EXISTS `ArtistAlbums`;
+DELIMITER $$
+USE `spotify`$$
+CREATE DEFINER=`root`@`localhost` PROCEDURE `ArtistAlbums`(IN id INT)
+BEGIN
+SELECT 
+Artists.Artist_id, Artists.Name AS Artist_name, Artists.Cover_img AS Artist_Cover_img , Artists.Created_at AS Artist_Created_at, Artists.Upload_at AS Artist_Upload_at,
+Albums.Album_id, Albums.Artist_id, Albums.Name AS Album_name, Albums.Cover_img AS Album_Cover_img, Albums.Created_at AS Album_Created_at, Albums.Upload_at AS Album_Upload_at
+FROM Artists 
+LEFT JOIN Albums ON Artists.Artist_id = Albums.Artist_id
+WHERE Artists.Artist_id = id;
 END$$
 
 

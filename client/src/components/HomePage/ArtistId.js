@@ -6,9 +6,13 @@ import Carousel from 'styled-components-carousel';
 function ArtistId(match) {
     console.log("match: ", match);
     const [artist, setArtist] = useState(null);
+    const [albums, setAlbums] = useState(null);
 
     useEffect(() => {
         fetchArtist();
+    }, []);
+    useEffect(() => {
+        fetchAlbums();
     }, []);
 
     const fetchArtist = async() => {
@@ -18,6 +22,13 @@ function ArtistId(match) {
         console.log("artist: ",artist)
         // data.map(album => console.log(data.Album_name))
     }
+
+    const fetchAlbums = async() => {
+            const { data } = await axios.get(`/albums/${match.match.params.id}`);
+            console.log("data :" , data)
+            setAlbums(data);
+            console.log("album: ",artist)
+        }        
     
     return (
         <>
@@ -32,7 +43,7 @@ function ArtistId(match) {
                 </div>
             </div>
             <div>
-            <p>Songs:</p>
+            <h3>Songs:</h3>
                 <Carousel
                 center
                 infinite
@@ -52,15 +63,28 @@ function ArtistId(match) {
                     )
                 })}
                 </Carousel>
-                <p>Albums:</p>
+            {albums &&
+            <div>
+                <h3>Albums:</h3>
                 <Carousel
                  center
                  infinite
                  showArrows
                  showIndicator
                  slidesToShow={3}>
-                    {}
+                    {albums.map((album) => {
+                        return (
+                            <div className="albumOnArtist">
+                                <p>{album.Album_name}</p>
+                                <div>
+                                    <img src={album.Album_Cover_img} alt={album.Album_name}/>
+                                </div>
+                            </div>
+                        )
+                    })}
                 </Carousel>
+            </div>
+            }
             </div>
             </div>
             )}
