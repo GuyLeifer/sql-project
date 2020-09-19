@@ -55,9 +55,7 @@ function ArtistId(match) {
                         <Link to={`/song/${song.Song_id}`}>
                             <div className="songOnArtist">  
                                         <p>{song.Title}</p>
-                                        {/* <div> */}
                                             <iframe src={`https://www.youtube.com/embed/${song.YouTube_Link}`}/>
-                                        {/* </div> */}
                             </div>
                         </Link>
                     )

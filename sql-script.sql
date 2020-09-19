@@ -7,7 +7,6 @@ CREATE TABLE Playlists (
   Cover_img varchar(255),
   Created_at date,
   Upload_at datetime not null default current_timestamp,
-  Songs_List varchar(255) not null,
   PRIMARY KEY (Playlist_id)
 );
 
@@ -81,10 +80,10 @@ CREATE TABLE Interactions (
   FOREIGN KEY (Song_id) references Songs(Song_id)
 );
 
-INSERT INTO Playlists(Name, Songs_List, Cover_img) 
+INSERT INTO Playlists(Name, Cover_img) 
 VALUES
-('Rock', '[1,2,3,4,5]', 'https://cdn4.vectorstock.com/i/1000x1000/17/23/lets-rock-music-print-graphic-design-with-guitar-vector-23381723.jpg'),
-('Rock_2', '[2,6,3,7,9]', 'https://cdn1.vectorstock.com/i/1000x1000/18/00/lets-rock-music-print-graphic-design-with-guitar-vector-23381800.jpg');
+('Rock', 'https://cdn4.vectorstock.com/i/1000x1000/17/23/lets-rock-music-print-graphic-design-with-guitar-vector-23381723.jpg'),
+('Rock_2', 'https://cdn1.vectorstock.com/i/1000x1000/18/00/lets-rock-music-print-graphic-design-with-guitar-vector-23381800.jpg');
 
 INSERT INTO Artists(Name, Cover_img, Created_at, Upload_at) 
 VALUES
@@ -412,6 +411,13 @@ Without that blind in my sight
 Could this all just be a dream
 If i should fall…
 ");
+
+INSERT INTO My_playlist_songs(Playlist_id, Song_id)
+VALUES
+(1,1), (1,2), (1,3),
+(2,6), (2,8), (2,10)
+;
+
 -- INSERT INTO Interactions(Username_id, Song_id, Is_liked, Play_count, Created_at) 
 -- VALUES(, , , , );
 
@@ -473,6 +479,21 @@ Albums.Album_id, Albums.Artist_id, Albums.Name AS Album_name, Albums.Cover_img A
 FROM Artists 
 LEFT JOIN Albums ON Artists.Artist_id = Albums.Artist_id
 WHERE Artists.Artist_id = id;
+END$$
+
+DROP procedure IF EXISTS `Playlist`;
+DELIMITER $$
+USE `spotify`$$
+CREATE DEFINER=`root`@`localhost` PROCEDURE `playlist`(IN id INT)
+BEGIN
+SELECT 
+Playlists.Playlist_id, Playlists.Name As Playlist_name, Playlists.Created_at As Playlist_Created_at, Playlists.Upload_at As Playlist_Upload_at, Playlists.Cover_img, 
+My_playlist_songs.Song_id,
+Songs.Album_id, Songs.Artist_id, YouTube_Link, Title, Length, Track_Number, Lyrics, Songs.Created_at AS Song_Created_at, Songs.Upload_at AS Song_Upload_at
+FROM Playlists 
+LEFT JOIN My_playlist_songs ON Playlists.Playlist_id = My_playlist_songs.Playlist_id
+LEFT JOIN Songs ON My_playlist_songs.Song_id = Songs.Song_id
+WHERE Playlists.Playlist_id = id;
 END$$
 
 

@@ -13,6 +13,10 @@
     color: rgb(73, 79, 82);
     font-size: 220%;
 }
+.headerImg {
+    height: 40px;
+    margin: 0 20px ;
+}
 .about {
     text-align: center;
 }

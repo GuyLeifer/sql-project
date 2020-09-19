@@ -118,12 +118,12 @@ app.get('/albums/:id', async (req, res) =>{
 });
 
 app.get('/playlist/:id', async (req, res) =>{
-    mysqlCon.query('SELECT * FROM playlists WHERE playlist_id = ?',[req.params.id,], (error, results, fields) => {
+    mysqlCon.query('call playlist(?)',[req.params.id,], (error, results, fields) => {
         if (error) {
             res.send(error.message);
             throw error;
         };
-        res.send(results);
+        res.send(results[0]);
       });
 });
 

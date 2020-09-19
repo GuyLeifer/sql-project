@@ -3,7 +3,10 @@ import React from 'react'
 function Header() {
     return (
         <header className="header">
-            <h1>Music Streamer</h1>   
+            <h1>Music
+            <img className="headerImg" src="https://medias.timeout.co.il/www/uploads/2018/05/youtube-music-t-600x600.jpg" />
+                 Player
+            </h1>   
         </header>
     )
 }
