@@ -3,10 +3,10 @@ import { Link } from 'react-router-dom';
 
 function GenericNotFound() {
     return (
-        <div>
-            <h1>404 - Not Found!</h1>
+        <div className="four0four">
+            <img src="https://static.collectui.com/shots/2421479/daily-ui-24-error-404-large"/>
             <Link to="/">
-                Go Home
+                <div>Go Home</div>
             </Link>
         </div>
     )

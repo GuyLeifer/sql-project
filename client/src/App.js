@@ -29,12 +29,11 @@ function App() {
         <Route path="/top_albums" exact component = {TopAlbums} />
         <Route path="/top_playlists" exact component = {TopPlaylists} />
         <Route path="/" exact component = {HomePage} />
-        <Route path="/artist/:id" component = {ArtistId}/>
-        <Route path="/album/:id" component = {AlbumId}/>
+        <Route path="/artist/:id" exact component = {ArtistId}/>
+        <Route path="/album/:id" exact component = {AlbumId}/>
         <Route path="/song/:id" component = {SongId}/>
-        <Route path="/playlist/:id" component = {PlaylistId}/>
-        <Route path="/song/:id?artist=:id" exact component = {ArtistId}/>
-      {/* <Route path='*' exact={true} component={GenericNotFound}/> */}
+        <Route path="/playlist/:id" exact component = {PlaylistId}/>
+        <Route path='*' exact={true} status={404} component={GenericNotFound}/>
       </Switch>
     </Router>
   );
