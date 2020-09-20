@@ -52,7 +52,7 @@ function ArtistId(match) {
                 slidesToShow={5}>
                 {artist.map((song) => {
                     return (
-                        <Link to={`/song/${song.Song_id}`}>
+                        <Link to={`/song/${song.Song_id}?artist=${song.Artist_id}`}>
                             <div className="songOnArtist">  
                                         <p>{song.Title}</p>
                                             <iframe src={`https://www.youtube.com/embed/${song.YouTube_Link}`}/>

@@ -129,7 +129,7 @@ app.get('/playlist/:id', async (req, res) =>{
 
 // POST Methods
 app.post('/song', async (req, res) =>{
-    mysqlCon.query('INSERT INTO songs SET ?',req.body, (error, results, fields) => {
+    mysqlCon.query('INSERT INTO songs SET ?',[req.body], (error, results, fields) => {
         if (error) {
             res.send(error.message);
             throw error;
@@ -139,7 +139,7 @@ app.post('/song', async (req, res) =>{
 });
 
 app.post('/artist', async (req, res) =>{
-    mysqlCon.query('INSERT INTO artists SET ?',req.body, (error, results, fields) => {
+    mysqlCon.query('INSERT INTO artists SET ?',[req.body], (error, results, fields) => {
         if (error) {
             res.send(error.message);
             throw error;
@@ -149,7 +149,7 @@ app.post('/artist', async (req, res) =>{
 });
 
 app.post('/album', async (req, res) =>{
-    mysqlCon.query('INSERT INTO albums SET ?',req.body, (error, results, fields) => {
+    mysqlCon.query('INSERT INTO albums SET ?',[req.body], (error, results, fields) => {
         if (error) {
             res.send(error.message);
             throw error;
@@ -159,7 +159,7 @@ app.post('/album', async (req, res) =>{
 });
 
 app.post('/playlist', async (req, res) =>{
-    mysqlCon.query('INSERT INTO playlists SET ?',req.body, (error, results, fields) => {
+    mysqlCon.query('INSERT INTO My_playlist_songs SET ?',[req.body], (error, results, fields) => {
         if (error) {
             res.send(error.message);
             throw error;

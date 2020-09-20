@@ -43,7 +43,7 @@ function AlbumId(match) {
                     slidesToShow={3}>
                     {album.map((song) => {
                         return (
-                            <Link to={`/song/${song.Song_id}`}> 
+                            <Link to={`/song/${song.Song_id}?album=${song.Album_id}`}> 
                                 <p>{song.Title}</p>
                                 <iframe src={`https://www.youtube.com/embed/${song.YouTube_Link}`}/>                           
                             </Link>  

@@ -40,7 +40,7 @@ function PlaylistId(match) {
                     slidesToShow={3}>
                         {playlist.map((song) => {
                             return (
-                                <Link to={`/song/${song.Song_id}`}> 
+                                <Link to={`/song/${song.Song_id}?playlist=${song.Playlist_id}`}> 
                                     <p>{song.Title}</p>
                                     <iframe src={`https://www.youtube.com/embed/${song.YouTube_Link}`}/>                           
                                 </Link>  
