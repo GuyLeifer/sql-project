@@ -5,12 +5,12 @@ import Carousel from 'styled-components-carousel';
 import Playlist from './Playlist';
 
 function SongId(match) {
-    console.log("match: ", match);
     const [song, setSong] = useState(null);
     const [artist, setArtist] = useState(null);
     const [album, setAlbum] = useState(null);
     const [playlist, setPlaylist] = useState(null);
-    // const [playlistID, setPlaylistID] = useState(null);
+    const [playlists, setPlaylists] = useState(null);
+    const [playlistID, setPlaylistID] = useState(1);
 
     useEffect(() => {
         fetchSong();
@@ -24,7 +24,9 @@ function SongId(match) {
     useEffect(() => {
         fetchPlaylist();
     }, []);
-
+    useEffect(() => {
+        fetchPlaylists();
+    }, []);
 
     const fetchSong = async() => {
         const { data } = await axios.get(`/song/${match.match.params.id}`);
@@ -34,46 +36,37 @@ function SongId(match) {
         if (match.location.search.substring(1, 7) === "artist") {
             console.log("artist search: ", match.location.search.substring(1, 7))
         const { data } = await axios.get(`/artist/${Number(match.location.search.substring(8))}`);
-        console.log("data: ", data)
         setArtist(data);
         }
     }
     const fetchAlbum = async() => {
         if (match.location.search.substring(1, 6) === "album") {
         const { data } = await axios.get(`/album/${Number(match.location.search.substring(7))}`);
-        console.log("data: ", data)
         setAlbum(data);
         }
     }
     const fetchPlaylist = async() => {
         if (match.location.search.substring(1, 9) === "playlist") {
         const { data } = await axios.get(`/playlist/${Number(match.location.search.substring(10))}`);
-        console.log("data: ", data)
         setPlaylist(data);
         }
     }
-   
-    // useEffect(() => {
-    //     fetchPlaylist();
-    // }, []);
-    // const fetchPlaylist = async() => {
-    //     const { data } = await axios.get(`/top_playlist`);
-    //     console.log("data ", data)
-    //     setPlaylist(data);
-    //     setPlaylistID(data[0].Playlist_id);
-    //     console.log("playlist: ", playlist)
-    //     console.log("playlistID: ", playlistID)
-    // }
+    const fetchPlaylists = async() => {
+        const { data } = await axios.get(`/top_playlist`);
+        console.log("data: ", data)
+        setPlaylists(data)
+        console.log("playlists: ", playlists)
+    }
+    const addPlaylistID = async() => {
+        await setPlaylistID(document.getElementById("mySelect").value);
+    }
 
-    // const addToPlaylist = async(playlistId, songId) => {
-    //     // await axios.post('/playlist', {
-    //     //     Playlist_id: playlistId,
-    //     //     Song_id: SongId
-    //     // });
-    //     console.log("playlistID: ",playlistId);
-    //     console.log("song: ", songId);
-    //     debugger;
-    // }
+    const addToPlaylist = async(playlistId, songId) => {
+        await axios.post('/playlist', {
+            "Playlist_id": Number(playlistId),
+            "Song_id": songId,
+        });
+    }
 
     
     return (
@@ -81,6 +74,18 @@ function SongId(match) {
         {song && (
             <div className="info">
                 <div>Song Title: {song.Title}</div>
+                {playlists && (
+                    <form onSubmit={() => addToPlaylist(playlistID, song.Song_id, song.Album_id, song.Artist_id, song.YouTube_Link, song.Title, song.Length, song.Track_Number, song.Lyrics, song.Song_Created_at, song.Song_Upload_at)}> Add To Playlist
+                        <select id="mySelect" onChange={() => addPlaylistID()}>
+                            {playlists.map(playlist => {
+                                return (
+                                    <option value={playlist.Playlist_id}>{playlist.Playlist_id}. {playlist.Name}</option>
+                                )
+                            })}
+                        </select>
+                        <input id="inputSubmit" type="submit" value="Add"/>
+                    </form>
+                )}
                 <Link to = {`/artist/${song.Artist_id}`}>
                     <div>Artist Name: {song.Artist_name}</div>
                 </Link>
@@ -144,9 +149,11 @@ function SongId(match) {
                     {playlist && (
                         <div>
                             <h3>Songs From Same Playlist:</h3>
-                            <h4>Playlist Name:  
+                            <h4>Playlist Name: {playlist[0].Playlist_name}
                                 <Link to = {`playlist/${playlist[0].Playlist_id}`}>
-                                    {playlist[0].Playlist_name}
+                                    <div>
+                                        Go To Playlist - {playlist[0].Playlist_name}
+                                    </div>
                                 </Link>
                             </h4>
                             <Carousel
@@ -167,18 +174,7 @@ function SongId(match) {
                         </div>
                     )}
                 </>
-                {/* {playlist && 
-                    <form onSubmit={(e) => addToPlaylist(playlistID, song.Song_id)}> Add this Song To Playlist 
-                        <select>
-                            {playlist.map((playlist) => {
-                                return (
-                                <option onClick={setPlaylistID(playlist.Playlist_id)}>{playlist.Playlist_id} {playlist.Name}</option>
-                                )
-                            })}
-                        </select>
-                        <input type="submit" value="Add"/>
-                    </form>
-                } */}
+                
             </div>
         )}
         </>

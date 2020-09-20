@@ -1,10 +1,5 @@
 USE spotify;
 
-INSERT INTO Playlists(Name, Cover_img) 
-VALUES
-('Rock', 'https://cdn4.vectorstock.com/i/1000x1000/17/23/lets-rock-music-print-graphic-design-with-guitar-vector-23381723.jpg'),
-('Rock_2', 'https://cdn1.vectorstock.com/i/1000x1000/18/00/lets-rock-music-print-graphic-design-with-guitar-vector-23381800.jpg');
-
 INSERT INTO Artists(Name, Cover_img, Created_at, Upload_at) 
 VALUES
 ('Green Day', 'https://i.pinimg.com/originals/88/03/d7/8803d7ec675006ca7c23d244b7ff0104.jpg', '2011-03-13 02:53:50' , '2011-03-13 02:53:50' ),
@@ -644,7 +639,7 @@ If i should fall…
 אלוקים שלי רק רציתי שתדע
 שלמרות שנפלתי אני קם עם חיוך
 ובליבי עוד נושא תפילה
-אבא'לה שלי אני קורא לך אבא'לה שלי
+אבאלה שלי אני קורא לך אבאלה שלי
 תגלה רחמיך על כל עמיך ישראל, אהוביך
 
 אב הרחמן לך מודים כל הבריות
@@ -656,10 +651,17 @@ If i should fall…
 אבל צמאה נפשי אליך לבקש סליחה
 כי אין בי כלום בלי תורתך');
 
+INSERT INTO Playlists(Name, Cover_img) 
+VALUES
+('Rock', 'https://cdn4.vectorstock.com/i/1000x1000/17/23/lets-rock-music-print-graphic-design-with-guitar-vector-23381723.jpg'),
+('Rock_2', 'https://cdn1.vectorstock.com/i/1000x1000/18/00/lets-rock-music-print-graphic-design-with-guitar-vector-23381800.jpg'),
+('Random Songs', 'https://upload.wikimedia.org/wikipedia/he/thumb/6/67/Sixteenth_notes_joined_01.svg/200px-Sixteenth_notes_joined_01.svg.png');
+
 INSERT INTO My_playlist_songs(Playlist_id, Song_id)
 VALUES
 (1,1), (1,2), (1,3),
-(2,6), (2,8), (2,10)
+(2,6), (2,8), (2,10),
+(3,1), (3,5), (3,6), (3,8), (3,10), (3,13), (3,15), (3,17), (3,19), (3,21), (3,23), (3,2)
 ;
 
 -- INSERT INTO Interactions(Username_id, Song_id, Is_liked, Play_count, Created_at) 
