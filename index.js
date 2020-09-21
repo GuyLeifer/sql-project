@@ -38,6 +38,45 @@ app.get('/songs', (req, res) => {
       });
 });
 
+// GET Methods for All
+
+app.get('/songs', (req, res) => {
+    mysqlCon.query('SELECT * FROM Songs', (error, results, fields) => {
+        if (error) {
+            res.send(error.message);
+            throw error;
+        };
+        res.send(results);
+      });
+})
+app.get('/artists', (req, res) => {
+    mysqlCon.query('SELECT * FROM Artists', (error, results, fields) => {
+        if (error) {
+            res.send(error.message);
+            throw error;
+        };
+        res.send(results);
+      });
+})
+app.get('/albums', (req, res) => {
+    mysqlCon.query('SELECT * FROM Albums', (error, results, fields) => {
+        if (error) {
+            res.send(error.message);
+            throw error;
+        };
+        res.send(results);
+      });
+})
+app.get('/playlists', (req, res) => {
+    mysqlCon.query('SELECT * FROM Playlists', (error, results, fields) => {
+        if (error) {
+            res.send(error.message);
+            throw error;
+        };
+        res.send(results);
+      });
+})
+
 // GET Methods for Top
 app.get('/top_songs', (req, res) => {
     mysqlCon.query('SELECT * FROM Songs LIMIT 20', (error, results, fields) => {
@@ -73,6 +112,15 @@ app.get('/top_playlist', (req, res) => {
             throw error;
         };
         res.send(results);
+      });
+})
+app.get('/all', (req, res) => {
+    mysqlCon.query('call spotify.all()', (error, results, fields) => {
+        if (error) {
+            res.send(error.message);
+            throw error;
+        };
+        res.send(results[0]);
       });
 })
 

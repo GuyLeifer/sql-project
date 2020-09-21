@@ -4,7 +4,7 @@ import { Link } from 'react-router-dom';
 
 function Adding() {
     return (
-        <div className="adding"> Choose From Here:
+        <div className="adding"> Choose What To Add From Here:
             <Carousel         
                 center
                 infinite

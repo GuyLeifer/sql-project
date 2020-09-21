@@ -328,3 +328,18 @@ form textarea {
 	height:100px;
 	width: 55%;
 }
+.home {
+    margin: 20px auto;
+    width: 150px;
+    border: 1px dashed black;
+}
+.home Img {
+    max-height: 100px;
+}
+#searchDiv {
+    display: flex;
+    justify-content: center;
+}
+#searchForm {
+    text-align: center;
+}

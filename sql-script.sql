@@ -155,5 +155,24 @@ LEFT JOIN Songs ON My_playlist_songs.Song_id = Songs.Song_id
 WHERE Playlists.Playlist_id = id;
 END$$
 
+DROP procedure IF EXISTS `all`;
+DELIMITER $$
+USE `spotify`$$
+CREATE DEFINER=`root`@`localhost` PROCEDURE `all`()
+BEGIN
+SELECT 
+Songs.Song_id, Songs.Album_id, Songs.Artist_id, YouTube_Link, Title, Length, Track_Number, Lyrics, Songs.Created_at AS Song_Created_at, Songs.Upload_at AS Song_Upload_at,
+Artists.Artist_id, Artists.Name AS Artist_name, Artists.Cover_img AS Artist_Cover_img , Artists.Created_at AS Artist_Created_at, Artists.Upload_at AS Artist_Upload_at, 
+Albums.Album_id, Albums.Artist_id, Albums.Name AS Album_name, Albums.Cover_img AS Album_Cover_img, Albums.Created_at AS Album_Created_at, Albums.Upload_at AS Album_Upload_at,
+My_playlist_songs.Song_id AS My_playlist_songs_Song_id, My_playlist_songs.Playlist_id AS My_playlist_songs_Playlist_id,
+Playlists.Playlist_id, Playlists.Name AS Playlist_name, Playlists.Cover_img AS Playlist_Cover_img , Playlists.Created_at AS Playlist_Created_at, Playlists.Upload_at AS Playlist_Upload_at
+FROM Songs 
+LEFT JOIN Artists ON Songs.Artist_id = Artists.Artist_id
+LEFT JOIN Albums ON Songs.Album_id = Albums.Album_id
+LEFT JOIN My_playlist_songs ON Songs.Song_id = My_playlist_song.Song_id
+LEFT JOIN Playlists ON My_playlist_songs.Playlist_id = Playlists.Playlist_id
+WHERE Songs.Song_id = id;
+END$$
+
 
 

@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import './App.css';
 import Header from './components/Header';
-import Login from './components/Login';
+// import Login from './components/Login';
 import HomePage from './components/HomePage/HomePage';
 import Nav from './components/HomePage/Nav';
 import About from './components/HomePage/About';
@@ -19,6 +19,7 @@ import AddArtist from './components/Adding/AddArtist';
 import AddAlbum from './components/Adding/AddAlbum';
 import AddSong from './components/Adding/AddSong';
 import AddPlaylist from './components/Adding/AddPlaylist';
+import Search from './components/Search/Search';
 import {BrowserRouter as Router, Switch, Route} from 'react-router-dom';
 
 function App() {
@@ -43,6 +44,7 @@ function App() {
         <Route path="/add/album" exact component = {AddAlbum}/>
         <Route path="/add/song" exact component = {AddSong}/>
         <Route path="/add/playlist" exact component = {AddPlaylist}/>
+        <Route path="/search" exact component = {Search}/>
         <Route path='*' exact={true} status={404} component={GenericNotFound}/>
       </Switch>
     </Router>

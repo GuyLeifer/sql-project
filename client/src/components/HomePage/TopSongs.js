@@ -19,7 +19,6 @@ function TopSongs() {
     }, [])
 
     return (
-        
         <div className="topSongs">
             <div className="topHeader">Top Songs</div>
             <Carousel         
@@ -32,8 +31,7 @@ function TopSongs() {
                     return <Song song={song} />
                 })} 
             </Carousel>
-        </div>
-       
+        </div>   
     )
 }
 
