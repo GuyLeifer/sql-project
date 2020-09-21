@@ -28,8 +28,8 @@ function SongId(match) {
         fetchPlaylists();
     }, []);
 
-    const fetchSong = async() => {
-        const { data } = await axios.get(`/song/${match.match.params.id}`);
+    const fetchSong = async(id = match.match.params.id) => {
+        const { data } = await axios.get(`/song/${id}`);
         setSong(data[0][0]);
     }
     const fetchArtist = async() => {
@@ -105,6 +105,14 @@ function SongId(match) {
                     {artist && (
                         <div>
                             <h3>Songs From Artist:</h3>
+                            <h4>Artist Name: {artist[0].Artist_name}
+                                <Link to = {`/artist/${artist[0].Artist_id}`}>
+                                    <div>
+                                        Go To Artist - {artist[0].Artist_name}
+                                    </div>
+                                    <img src={artist[0].Artist_Cover_img} />
+                                </Link>
+                            </h4>
                             <Carousel
                                 center
                                 infinite
@@ -114,8 +122,10 @@ function SongId(match) {
                                     {artist.map((song) => {
                                         return (
                                             <div>
-                                                <div>{song.Title}</div>
-                                                <iframe src={`https://www.youtube.com/embed/${song.YouTube_Link}`}/>
+                                                <Link to = {`/song/${song.Song_id}?artist=${song.Artist_id}`}>
+                                                    <div>{song.Title}</div>
+                                                    <iframe src={`https://www.youtube.com/embed/${song.YouTube_Link}`}/>
+                                                </Link>
                                             </div>
                                         )
                                     })}
@@ -127,6 +137,14 @@ function SongId(match) {
                     {album && (
                         <div>
                             <h3>Songs From Album:</h3>
+                            <h4>Album Name: {album[0].Album_name}
+                                <Link to = {`/album/${album[0].Album_id}`}>
+                                    <div>
+                                        Go To Album - {album[0].Album_name}
+                                    </div>
+                                    <img src={album[0].Album_Cover_img} />
+                                </Link>
+                            </h4>
                             <Carousel
                                 center
                                 infinite
@@ -136,8 +154,10 @@ function SongId(match) {
                                     {album.map((song) => {
                                         return (
                                             <div>
-                                                <div>{song.Title}</div>
-                                                <iframe src={`https://www.youtube.com/embed/${song.YouTube_Link}`}/>
+                                                <Link to = {`/song/${song.Song_id}?album=${song.Album_id}`}>
+                                                    <div>{song.Title}</div>
+                                                    <iframe src={`https://www.youtube.com/embed/${song.YouTube_Link}`}/>
+                                                </Link>
                                             </div>
                                         )
                                     })}
@@ -150,10 +170,11 @@ function SongId(match) {
                         <div>
                             <h3>Songs From Same Playlist:</h3>
                             <h4>Playlist Name: {playlist[0].Playlist_name}
-                                <Link to = {`playlist/${playlist[0].Playlist_id}`}>
+                                <Link to = {`/playlist/${playlist[0].Playlist_id}`}>
                                     <div>
                                         Go To Playlist - {playlist[0].Playlist_name}
                                     </div>
+                                    <img src={playlist[0].Cover_img} />
                                 </Link>
                             </h4>
                             <Carousel
@@ -164,9 +185,11 @@ function SongId(match) {
                                 slidesToShow={3}>
                                     {playlist.map((song) => {
                                         return (
-                                            <div>
-                                                <div>{song.Title}</div>
-                                                <iframe src={`https://www.youtube.com/embed/${song.YouTube_Link}`}/>
+                                            <div onClick={() => fetchSong(song.Song_id)}>
+                                                <Link to = {`/song/${song.Song_id}?playlist=${song.Playlist_id}`}>
+                                                    <div>{song.Title}</div>
+                                                    <iframe src={`https://www.youtube.com/embed/${song.YouTube_Link}`}/>
+                                                </Link>
                                             </div>
                                         )
                                     })}
