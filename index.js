@@ -310,6 +310,26 @@ app.delete('/playlist/:id', async (req, res) =>{
       });
 });
 
+app.get("/", (req, res) => {
+    let sql = 
+    `SELECT Artist.Name from Artists
+    WHERE Artist.Name LIKE "%${req.query.params}%"
+    UNION
+    SELECT Songs.Name FROM Songs
+    WHERE Songs.Name LIKE "%${req.query.params}%"
+    UNION 
+    SELECT Albums.Name FROM Albums
+    WHERE Albums.Name LIKE "%${req.query.params}%"
+    UNION 
+    SELECT Playlists.Name FROM Playlists
+    WHERE Playlists.Name LIKE "%${req.query.params}%"`
+    mysqlCon.query(sql, (err, result) => {
+        if (err) throw err;
+        console.log("Post Fetched...");
+        res.send(result);
+    })
+})
+
 
 app.listen(8080, () => {
     console.log('Server Started On Port 8080')
