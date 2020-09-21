@@ -26,6 +26,9 @@ function Nav() {
                 <Link style={navStyle} to='/Top_playlists'>
                     <li>Top Playlists</li>
                 </Link>
+                <Link style={navStyle} to='/add'>
+                    <li>Add</li>
+                </Link>
                 <Link style={navStyle} to='/about'>
                     <li>About</li>
                 </Link>

@@ -198,7 +198,7 @@ text-align: center;
     color: #444;
     padding: 4px 10px;
     box-sizing: border-box;
-    margin: 0;
+    margin: 10px;
     border: 1px solid #aaa;
     box-shadow: 0 1px 0 1px rgba(0,0,0,.04);
     border-radius: .5em;
@@ -212,12 +212,119 @@ text-align: center;
     background-position: right .7em top 50%, 0 0;
     background-size: .65em auto, 100%;
 }
-
-/* Hover style */
 #mySelect:hover {
-    border-color: #888;
+    border-color: rgb(109, 107, 107);
 }
-
-
-
-
+.adder {
+    text-align: center;
+}
+.adding {
+    text-align: center;
+}
+.adding img {
+    height: 100px;
+}
+.addInfo {
+    text-align: center;
+}
+.addInfo form {
+    display: flex;
+    justify-content: space-around;
+}
+.add {
+    text-align: center;
+}
+#form input {
+    margin: 10px;
+    padding: 5px;
+}
+#form {
+    border: 1px solid black;
+    max-width: 390px;
+    margin: auto;
+    padding: 10px;
+}
+input[type=reset] {
+    color: #444444;
+    background: #F3F3F3;
+    border: 1px #DADADA solid;
+    padding: 5px 10px;
+    border-radius: 2px;
+    font-weight: bold;
+    font-size: 9pt;
+    outline: none;
+}
+input[type=reset]:hover {
+    border: 1px #C6C6C6 solid;
+    box-shadow: 1px 1px 1px #EAEAEA;
+    color: #333333;
+    background: #F7F7F7;
+}
+input[type=submit] {
+    color: #444444;
+    background: #F3F3F3;
+    border: 1px #DADADA solid;
+    padding: 5px 10px;
+    border-radius: 2px;
+    font-weight: bold;
+    font-size: 9pt;
+    outline: none;
+}
+input[type=submit]:hover {
+    border: 1px #C6C6C6 solid;
+    box-shadow: 1px 1px 1px #EAEAEA;
+    color: #333333;
+    background: #F7F7F7;
+}
+input[type=button] {
+    color: #444444;
+    background: #F3F3F3;
+    border: 1px #DADADA solid;
+    padding: 5px 10px;
+    border-radius: 2px;
+    font-weight: bold;
+    font-size: 9pt;
+    outline: none;
+}
+input[type=button]:hover {
+    border: 1px #C6C6C6 solid;
+    box-shadow: 1px 1px 1px #EAEAEA;
+    color: #333333;
+    background: #F7F7F7;
+}
+form {
+	padding: 20px 12px 10px 20px;
+	font: 13px Arial, Helvetica, sans-serif;
+}
+form label{
+	display: block;
+	margin: 0px 0px 15px 0px;
+}
+form input.input-field, form .select-field{
+	width: 48%;	
+}
+form input, 
+form textarea, 
+form select {
+	box-sizing: border-box;
+	-webkit-box-sizing: border-box;
+	-moz-box-sizing: border-box;
+	border: 1px solid #C2C2C2;
+	box-shadow: 1px 1px 4px #EBEBEB;
+	-moz-box-shadow: 1px 1px 4px #EBEBEB;
+	-webkit-box-shadow: 1px 1px 4px #EBEBEB;
+	border-radius: 3px;
+	-webkit-border-radius: 3px;
+	-moz-border-radius: 3px;
+	padding: 7px;
+	outline: none;
+}
+form input:focus, 
+form textarea:focus,  
+form select:focus {
+	border: 1px solid #333333;
+}
+form textarea {
+	height:100px;
+	width: 55%;
+}

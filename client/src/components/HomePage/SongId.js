@@ -83,7 +83,7 @@ function SongId(match) {
                                 )
                             })}
                         </select>
-                        <input id="inputSubmit" type="submit" value="Add"/>
+                        <input id="inputSubmit" type="submit" value="ADD"/>
                     </form>
                 )}
                 <Link to = {`/artist/${song.Artist_id}`}>
