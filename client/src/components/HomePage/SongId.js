@@ -2,7 +2,7 @@ import React, { useEffect, useState } from 'react'
 import axios from 'axios';
 import { Link } from 'react-router-dom';
 import Carousel from 'styled-components-carousel';
-import Playlist from './Playlist';
+import YouTube from 'react-youtube';
 
 function SongId(match) {
     const [song, setSong] = useState(null);
@@ -68,12 +68,30 @@ function SongId(match) {
         });
     }
 
-    
+    const optsForMainSong = {
+        height: '390',
+        width: '640',
+        playerVars: {
+            autoplay: 1,
+          },
+    }
+    const optsForOtherSong = {
+        height: '160',
+        width: '260',
+        // playerVars: {
+        //     autoplay: 1,
+        //   },
+    }
+
     return (
         <>
         {song && (
             <div className="info">
                 <div>Song Title: {song.Title}</div>
+                <div>
+                    <YouTube videoId={song.YouTube_Link} opts={optsForMainSong} /> 
+                    {/* <iframe src={`https://www.youtube.com/embed/${song.YouTube_Link}`}/> */}
+                </div>
                 {playlists && (
                     <form onSubmit={() => addToPlaylist(playlistID, song.Song_id, song.Album_id, song.Artist_id, song.YouTube_Link, song.Title, song.Length, song.Track_Number, song.Lyrics, song.Song_Created_at, song.Song_Upload_at)}> Add To Playlist
                         <select id="mySelect" onChange={() => addPlaylistID()}>
@@ -96,11 +114,6 @@ function SongId(match) {
                 <div>Upload At: {song.Song_Upload_at}</div>
                 <div>Length: {song.Length}</div>
                 <div>Lyrics: <br />{song.Lyrics}</div>
-                <div>YouTube Link: 
-                    <div>
-                        <iframe src={`https://www.youtube.com/embed/${song.YouTube_Link}`}/>
-                    </div>
-                </div>
                 <>
                     {artist && (
                         <div>
@@ -124,7 +137,8 @@ function SongId(match) {
                                             <div>
                                                 <Link to = {`/song/${song.Song_id}?artist=${song.Artist_id}`}>
                                                     <div>{song.Title}</div>
-                                                    <iframe src={`https://www.youtube.com/embed/${song.YouTube_Link}`}/>
+                                                    <YouTube videoId={song.YouTube_Link} opts={optsForOtherSong} />
+                                                    {/* <iframe src={`https://www.youtube.com/embed/${song.YouTube_Link}`}/> */}
                                                 </Link>
                                             </div>
                                         )
@@ -156,7 +170,8 @@ function SongId(match) {
                                             <div>
                                                 <Link to = {`/song/${song.Song_id}?album=${song.Album_id}`}>
                                                     <div>{song.Title}</div>
-                                                    <iframe src={`https://www.youtube.com/embed/${song.YouTube_Link}`}/>
+                                                    <YouTube videoId={song.YouTube_Link} opts={optsForOtherSong} />
+                                                    {/* <iframe src={`https://www.youtube.com/embed/${song.YouTube_Link}`}/> */}
                                                 </Link>
                                             </div>
                                         )
@@ -188,7 +203,8 @@ function SongId(match) {
                                             <div onClick={() => fetchSong(song.Song_id)}>
                                                 <Link to = {`/song/${song.Song_id}?playlist=${song.Playlist_id}`}>
                                                     <div>{song.Title}</div>
-                                                    <iframe src={`https://www.youtube.com/embed/${song.YouTube_Link}`}/>
+                                                    <YouTube videoId={song.YouTube_Link} opts={optsForOtherSong} />
+                                                    {/* <iframe src={`https://www.youtube.com/embed/${song.YouTube_Link}`}/> */}
                                                 </Link>
                                             </div>
                                         )

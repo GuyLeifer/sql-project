@@ -2,6 +2,7 @@ import React, { useEffect, useState } from 'react'
 import axios from 'axios';
 import { Link } from 'react-router-dom';
 import Carousel from 'styled-components-carousel';
+import YouTube from 'react-youtube';
 
 function ArtistId(match) {
     console.log("match: ", match);
@@ -29,6 +30,11 @@ function ArtistId(match) {
             setAlbums(data);
             console.log("album: ",artist)
         }        
+
+    const opts = {
+        height: '160',
+        width: '260',
+    }    
     
     return (
         <>
@@ -55,7 +61,8 @@ function ArtistId(match) {
                         <Link to={`/song/${song.Song_id}?artist=${song.Artist_id}`}>
                             <div className="songOnArtist">  
                                         <p>{song.Title}</p>
-                                            <iframe src={`https://www.youtube.com/embed/${song.YouTube_Link}`}/>
+                                        <YouTube videoId={song.YouTube_Link} opts={opts} />
+                                        {/* <iframe src={`https://www.youtube.com/embed/${song.YouTube_Link}`}/> */}
                             </div>
                         </Link>
                     )

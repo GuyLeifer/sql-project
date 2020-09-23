@@ -1,8 +1,13 @@
-import React, { useState, useEffect } from 'react';
+import React from 'react';
 import { Link } from 'react-router-dom';
+import YouTube from 'react-youtube';
 
 function Song({song}) {
-    const [songID, setSongID] = useState("");
+
+    const opts = {
+        height: '160',
+        width: '260',
+    }
     
     return (
         <Link to = {`/song/${song.Song_id}`}>
@@ -10,7 +15,8 @@ function Song({song}) {
                 <span className="songTitle">{song.Title}</span> 
                 <span className="songLength">{song.Length}</span>
                 <div>
-                    <iframe src={`https://www.youtube.com/embed/${song.YouTube_Link}`}/>
+                    <YouTube videoId={song.YouTube_Link} opts={opts} />
+                    {/* <iframe src={`https://www.youtube.com/embed/${song.YouTube_Link}`}/> */}
                 </div>
             </div>
         </Link>

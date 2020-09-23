@@ -2,6 +2,7 @@ import React, { useEffect, useState } from 'react'
 import axios from 'axios';
 import { Link } from 'react-router-dom';
 import Carousel from 'styled-components-carousel';
+import YouTube from 'react-youtube';
 
 function PlaylistId(match) {
     console.log("match: ", match);
@@ -18,6 +19,11 @@ function PlaylistId(match) {
 
     }
     console.log("playlist: ", playlist)
+
+    const opts = {
+        height: '160',
+        width: '260',
+    }
 
     return (
         <>
@@ -42,7 +48,8 @@ function PlaylistId(match) {
                             return (
                                 <Link to={`/song/${song.Song_id}?playlist=${song.Playlist_id}`}> 
                                     <p>{song.Title}</p>
-                                    <iframe src={`https://www.youtube.com/embed/${song.YouTube_Link}`}/>                           
+                                    <YouTube videoId={song.YouTube_Link} opts={opts} />
+                                    {/* <iframe src={`https://www.youtube.com/embed/${song.YouTube_Link}`}/>                            */}
                                 </Link>  
                             )
                         })}
