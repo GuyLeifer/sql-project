@@ -16,7 +16,7 @@ let mysqlCon = mysql.createConnection({
     host: "localhost",
     user: "root",
     password: process.env.PASSWORD,
-    database: process.env.DATABASE,
+    database: process.env.ORMDATABASE,
     multipleStatements: true
   });
 

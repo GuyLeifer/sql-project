@@ -23,7 +23,7 @@ module.exports = (sequelize, DataTypes) => {
   };
   Artist.init({
     Name: DataTypes.STRING,
-    Cover_img: DataTypes.STRING,
+    Cover_img: DataTypes.STRING(8000),
     Created_at: DataTypes.DATEONLY,
     Upload_at: DataTypes.DATEONLY
   }, {

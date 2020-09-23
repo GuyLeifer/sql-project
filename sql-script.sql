@@ -169,9 +169,8 @@ Playlists.Playlist_id, Playlists.Name AS Playlist_name, Playlists.Cover_img AS P
 FROM Songs 
 LEFT JOIN Artists ON Songs.Artist_id = Artists.Artist_id
 LEFT JOIN Albums ON Songs.Album_id = Albums.Album_id
-LEFT JOIN My_playlist_songs ON Songs.Song_id = My_playlist_song.Song_id
-LEFT JOIN Playlists ON My_playlist_songs.Playlist_id = Playlists.Playlist_id
-WHERE Songs.Song_id = id;
+LEFT JOIN My_playlist_songs ON Songs.Song_id = My_playlist_songs.Song_id
+LEFT JOIN Playlists ON My_playlist_songs.Playlist_id = Playlists.Playlist_id;
 END$$
 
 
