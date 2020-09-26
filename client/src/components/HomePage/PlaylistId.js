@@ -5,7 +5,6 @@ import Carousel from 'styled-components-carousel';
 import YouTube from 'react-youtube';
 
 function PlaylistId(match) {
-    console.log("match: ", match);
     const [playlist, setPlaylist] = useState(null);
 
     useEffect(() => {
@@ -13,12 +12,10 @@ function PlaylistId(match) {
     }, []);
 
     const fetchPlaylist = async() => {
-        const { data } = await axios.get(`/playlist/${match.match.params.id}`);
-        console.log("data: ", data)
-        setPlaylist(data);
-
+        const { data } = await axios.get(`/playlistsongs`);
+        const playlistSongs = data.filter((item) => item.PlaylistId == match.match.params.id);
+        setPlaylist(playlistSongs);
     }
-    console.log("playlist: ", playlist)
 
     const opts = {
         height: '160',
@@ -29,12 +26,12 @@ function PlaylistId(match) {
         <>
         {playlist && (
             <div className="info">
-                <div>Playlist Name: {playlist[0].Playlist_name}</div>
-                <div>Created At: {playlist[0].Playlist_Created_at}</div>
-                <div>Upload At: {playlist[0].Playlist_Upload_at}</div>
+                <div>Playlist Name: {playlist[0].Playlist.Name}</div>
+                <div>Created At: {playlist[0].Playlist.createdAt}</div>
+                <div>Updated At: {playlist[0].Playlist.updatedAt}</div>
                 <div>
                     <h3>Cover Image:</h3>
-                    <img src={playlist[0].Cover_img}/>
+                    <img src={playlist[0].Playlist.Cover_img}/>
                 </div>
                 <div>
                     <h3>Songs:</h3>
@@ -44,11 +41,11 @@ function PlaylistId(match) {
                     showArrows
                     showIndicator
                     slidesToShow={3}>
-                        {playlist.map((song) => {
+                        {playlist.map((item) => {
                             return (
-                                <Link to={`/song/${song.Song_id}?playlist=${song.Playlist_id}`}> 
-                                    <p>{song.Title}</p>
-                                    <YouTube videoId={song.YouTube_Link} opts={opts} />
+                                <Link to={`/song/${item.Song.id}?playlist=${item.PlaylistId}`}> 
+                                    <p>{item.Song.Title}</p>
+                                    <YouTube videoId={item.Song.YouTube_Link} opts={opts} />
                                     {/* <iframe src={`https://www.youtube.com/embed/${song.YouTube_Link}`}/>                            */}
                                 </Link>  
                             )

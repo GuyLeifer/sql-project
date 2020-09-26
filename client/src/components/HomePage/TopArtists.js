@@ -9,7 +9,7 @@ function TopArtists() {
     useEffect(() => {
         (async () => {
             try {
-            const { data } = await axios.get('/top_artists');
+            const { data } = await axios.get('/artists');
             setArtists(data);
             }
             catch(err) {

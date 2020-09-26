@@ -7,29 +7,19 @@ import YouTube from 'react-youtube';
 function ArtistId(match) {
     console.log("match: ", match);
     const [artist, setArtist] = useState(null);
-    const [albums, setAlbums] = useState(null);
 
     useEffect(() => {
         fetchArtist();
     }, []);
-    useEffect(() => {
-        fetchAlbums();
-    }, []);
+
 
     const fetchArtist = async() => {
-        const { data } = await axios.get(`/artist/${match.match.params.id}`);
+        const { data } = await axios.get(`/artists/${match.match.params.id}`);
         console.log("data :" , data)
         setArtist(data);
         console.log("artist: ",artist)
-        // data.map(album => console.log(data.Album_name))
     }
-
-    const fetchAlbums = async() => {
-            const { data } = await axios.get(`/albums/${match.match.params.id}`);
-            console.log("data :" , data)
-            setAlbums(data);
-            console.log("album: ",artist)
-        }        
+  
 
     const opts = {
         height: '160',
@@ -40,12 +30,12 @@ function ArtistId(match) {
         <>
             {artist && (
         <div className="info">
-            <div>Artist Name: {artist[0].Artist_name}</div>
-            <div>Created At: {artist[0].Artist_Created_at}</div>
-            <div>Upload At: {artist[0].Artist_Upload_at}</div>
+            <div>Artist Name: {artist.Name}</div>
+            <div>Created At: {artist.createdAt}</div>
+            <div>Updated At: {artist.updatedAt}</div>
             <div>Cover Image: 
                 <div>
-                    <img src={artist[0].Artist_Cover_img} alt={artist[0].Artist_name} />
+                    <img src={artist.Cover_img} alt={artist.Name} />
                 </div>
             </div>
             <div>
@@ -56,40 +46,39 @@ function ArtistId(match) {
                 showArrows
                 showIndicator
                 slidesToShow={5}>
-                {artist.map((song) => {
+                {artist.Songs.map((song) => {
                     return (
-                        <Link to={`/song/${song.Song_id}?artist=${song.Artist_id}`}>
+                        <Link to={`/song/${song.id}?artist=${song.ArtistId}`}>
                             <div className="songOnArtist">  
                                         <p>{song.Title}</p>
                                         <YouTube videoId={song.YouTube_Link} opts={opts} />
-                                        {/* <iframe src={`https://www.youtube.com/embed/${song.YouTube_Link}`}/> */}
                             </div>
                         </Link>
                     )
                 })}
                 </Carousel>
-            {albums &&
-            <div>
-                <h3>Albums:</h3>
-                <Carousel
-                 center
-                 infinite
-                 showArrows
-                 showIndicator
-                 slidesToShow={3}>
-                    {albums.map((album) => {
-                        return (
-                            <div className="albumOnArtist">
-                                <p>{album.Album_name}</p>
-                                <div>
-                                    <img src={album.Album_Cover_img} alt={album.Album_name}/>
-                                </div>
-                            </div>
-                        )
-                    })}
-                </Carousel>
-            </div>
-            }
+                <div>
+                    <h3>Albums:</h3>
+                    <Carousel
+                     center
+                     infinite
+                     showArrows
+                     showIndicator
+                     slidesToShow={3}>
+                        {artist.Albums.map((album) => {
+                            return (
+                                <Link to={`/album/${album.id}?artist=${album.ArtistId}`}>
+                                    <div className="albumOnArtist">
+                                        <p>{album.Name}</p>
+                                        <div>
+                                            <img src={album.Cover_img} alt={album.Name}/>
+                                        </div>
+                                    </div>
+                                </Link>
+                            )
+                        })}
+                    </Carousel>
+                </div>
             </div>
             </div>
             )}

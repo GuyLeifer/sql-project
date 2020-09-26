@@ -9,7 +9,8 @@ function TopSongs() {
     useEffect(() => {
         (async () => {
             try {
-            const { data } = await axios.get('/top_songs');
+            const { data } = await axios.get('/songs');
+            console.log("data: ", data)
             setSongs(data);
             }
             catch(err) {

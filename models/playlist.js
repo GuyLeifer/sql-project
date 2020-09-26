@@ -12,16 +12,15 @@ module.exports = (sequelize, DataTypes) => {
     static associate(models) {
       // define association here
       this.hasMany(models.My_playlist_song, {
-        foreignKey: 'my_playlist_songId',
-        as: 'my_playlist_songs',
+        foreignKey: 'PlaylistId'
       });
     }
   };
   Playlist.init({
     Name: DataTypes.STRING,
     Cover_img: DataTypes.STRING,
-    Created_at: DataTypes.DATEONLY,
-    Upload_at: DataTypes.DATEONLY
+    createdAt: DataTypes.DATE,
+    updatedAt: DataTypes.DATE
   }, {
     sequelize,
     modelName: 'Playlist',

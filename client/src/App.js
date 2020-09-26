@@ -35,8 +35,8 @@ function App() {
         <Route path="/top_artists" exact component = {TopArtists} />
         <Route path="/top_albums" exact component = {TopAlbums} />
         <Route path="/top_playlists" exact component = {TopPlaylists} />
-        <Route path="/artist/:id" exact component = {ArtistId}/>
-        <Route path="/album/:id" exact component = {AlbumId}/>
+        <Route path="/artist/:id" component = {ArtistId}/>
+        <Route path="/album/:id" component = {AlbumId}/>
         <Route path="/song/:id" component = {SongId}/>
         <Route path="/playlist/:id" exact component = {PlaylistId}/>
         <Route path="/add" exact component = {Adding}/>

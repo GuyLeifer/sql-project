@@ -9,7 +9,7 @@ function TopPlaylists() {
     useEffect(() => {
         (async () => {
             try {
-            const { data } = await axios.get('/top_playlist');
+            const { data } = await axios.get('/playlists');
             setPlaylists(data);
             }
             catch(err) {

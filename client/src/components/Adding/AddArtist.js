@@ -13,7 +13,7 @@ function AddArtist({sendData, sendStatus}) {
     }
 
     async function sendData(data){
-        await axios.post('/artist/', data)
+        await axios.post('/artists/', data)
     }
 
     const submitChecks = (e)=>{
@@ -41,8 +41,8 @@ function AddArtist({sendData, sendStatus}) {
                 <label htmlFor='Cover_img'>Image: 
                     <input name='Cover_img' placeholder='Image URL' onChange={inputChange} /><br />
                 </label>
-                <label htmlFor='Created_at'>Created At*: 
-                    <input required name='Created_at' type='date' onChange={inputChange} /> 
+                <label htmlFor='createdAt'>Created At*: 
+                    <input required name='createdAt' type='date' onChange={inputChange} /> 
                 </label><br />
 
                 <input id='checkBtn' type='button' value='Check Data' onClick={()=>{console.log(dataToAdd)}}  />

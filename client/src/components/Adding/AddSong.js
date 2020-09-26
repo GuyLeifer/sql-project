@@ -1,7 +1,7 @@
 import React from 'react';
 import axios from 'axios';
 
-function AddAlbum({sendData, sendStatus}) {
+function AddSong({sendData, sendStatus}) {
     const dataToAdd = {};
 
     const inputChange = (e) => {
@@ -13,7 +13,7 @@ function AddAlbum({sendData, sendStatus}) {
     }
 
     async function sendData(data){
-        await axios.post('/song/', data)
+        await axios.post('/songs/', data)
     }
 
     const submitChecks = (e)=>{
@@ -35,11 +35,11 @@ function AddAlbum({sendData, sendStatus}) {
             autoComplete = 'off'
             onSubmit = {submitChecks}>
                 <input type='reset' htmlFor='form' value='Reset'/> <br/>
-                <label htmlFor='Artist_id'>Artist ID*:   
-                    <input required type='number' name='Artist_id' placeholder='Check The ID on Artist Page' required onChange={inputChange}/> <br />
+                <label htmlFor='ArtistId'>Artist ID*:   
+                    <input required type='number' name='ArtistId' placeholder='Check The ID on Artist Page' required onChange={inputChange}/> <br />
                 </label>
-                <label htmlFor='Album_id'>Album ID*:   
-                    <input required type='number' name='Album_id' placeholder='Check The ID on Album Page' required onChange={inputChange}/> <br />
+                <label htmlFor='AlbumId'>Album ID*:   
+                    <input required type='number' name='AlbumId' placeholder='Check The ID on Album Page' required onChange={inputChange}/> <br />
                 </label>
                 <label htmlFor='Title'>Song Title: 
                     <input name='Title' placeholder='Title' onChange={inputChange} /><br />
@@ -53,8 +53,8 @@ function AddAlbum({sendData, sendStatus}) {
                 <label htmlFor='Track_Number'>Track Number: (In Album)* 
                 <input required name='Track_Number' type='number' onChange={inputChange} /><br />
                 </label><br />
-                <label htmlFor='Created_at'>Created At*: 
-                    <input required name='Created_at' type='date' onChange={inputChange} /> <br />
+                <label htmlFor='createdAt'>Created At*: 
+                    <input required name='createdAt' type='date' onChange={inputChange} /> <br />
                 </label>
                 <legend>Lyrics:</legend>
                 <textarea style={{width:'20vw'}} form='form' wrap='soft' rows='6' maxLength='8000' required name='Lyrics' type='textarea' onChange={inputChange} /><br />
@@ -65,4 +65,4 @@ function AddAlbum({sendData, sendStatus}) {
         </div>
   )
 }
-export default AddAlbum;
+export default AddSong;

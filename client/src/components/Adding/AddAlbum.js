@@ -13,7 +13,7 @@ function AddAlbum({sendData, sendStatus}) {
     }
 
     async function sendData(data){
-        await axios.post('/album/', data)
+        await axios.post('/albums/', data)
     }
 
     const submitChecks = (e)=>{
@@ -35,8 +35,8 @@ function AddAlbum({sendData, sendStatus}) {
             autoComplete = 'off'
             onSubmit = {submitChecks}>
                 <input type='reset' htmlFor='form' value='Reset'/> <br/>
-                <label htmlFor='Artist_id'>Artist ID*:   
-                    <input required name='Artist_id' placeholder='Check The ID on Artist Page' required onChange={inputChange}/> <br />
+                <label htmlFor='ArtistId'>Artist ID*:   
+                    <input required name='ArtistId' placeholder='Check The ID on Artist Page' required onChange={inputChange}/> <br />
                 </label>
                 <label htmlFor='Name'>Album Name:   
                     <input required name='Name' placeholder='Album Name' required onChange={inputChange}/> <br />
@@ -44,8 +44,8 @@ function AddAlbum({sendData, sendStatus}) {
                 <label htmlFor='Cover_img'>Image: 
                     <input name='Cover_img' placeholder='Image URL' onChange={inputChange} /><br />
                 </label>
-                <label htmlFor='Created_at'>Created At*: 
-                    <input required name='Created_at' type='date' onChange={inputChange} /> 
+                <label htmlFor='createdAt'>Created At*: 
+                    <input required name='createdAt' type='date' onChange={inputChange} /> 
                 </label><br />
 
                 <input id='checkBtn' type='button' value='Check Data' onClick={()=>{console.log(dataToAdd)}}  />

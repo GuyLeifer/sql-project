@@ -14,13 +14,13 @@ module.exports = {
       Cover_img: {
         type: Sequelize.STRING(8000)
       },
-      Created_at: {
+      createdAt: {
         allowNull: false,
-        type: Sequelize.DATEONLY
+        type: Sequelize.DATE
       },
-      Upload_at: {
+      updatedAt: {
         allowNull: false,
-        type: Sequelize.DATEONLY
+        type: Sequelize.DATE
       }
     });
   },

@@ -11,24 +11,23 @@ module.exports = (sequelize, DataTypes) => {
      */
     static associate(models) {
       // define association here
-      this.belongsTo(models.Artist, {
-        foreignKey: 'artistId'
-      });
-      this.belongsTo(models.Album, {
-        foreignKey: 'albumId'
+      this.belongsTo(models.Artist);
+      this.belongsTo(models.Album);
+      this.hasMany(models.My_playlist_song, {
+        foreignKey: 'SongId'
       });
     }
   };
   Song.init({
     Title: DataTypes.STRING,
-    Artist_id: DataTypes.INTEGER,
-    Album_id: DataTypes.INTEGER,
+    ArtistId: DataTypes.INTEGER,
+    AlbumId: DataTypes.INTEGER,
     YouTube_Link: DataTypes.STRING,
     Length: DataTypes.STRING,
     Track_Number: DataTypes.INTEGER,
     Lyrics: DataTypes.STRING,
-    Created_at: DataTypes.DATEONLY,
-    Upload_at: DataTypes.DATEONLY
+    createdAt: DataTypes.DATE,
+    updatedAt: DataTypes.DATE
   }, {
     sequelize,
     modelName: 'Song',

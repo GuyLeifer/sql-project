@@ -9,7 +9,7 @@ function TopAlbums() {
     useEffect(() => {
         (async () => {
             try {
-            const { data } = await axios.get('/top_albums');
+            const { data } = await axios.get('/albums');
             setAlbums(data);
             }
             catch(err) {

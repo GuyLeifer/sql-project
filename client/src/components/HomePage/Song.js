@@ -10,7 +10,7 @@ function Song({song}) {
     }
     
     return (
-        <Link to = {`/song/${song.Song_id}`}>
+        <Link to = {`/song/${song.id}`}>
             <div className="song" >
                 <span className="songTitle">{song.Title}</span> 
                 <span className="songLength">{song.Length}</span>
