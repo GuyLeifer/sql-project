@@ -2,10 +2,12 @@ const app = require('../../app') // Link to your server file
 const request = require('supertest')
 // const request = supertest(app)
 
-// Testing to see if Jest works
+describe('initial tests', () => {
+
+    // Testing to see if Jest works
 it('Testing to see if Jest works', () => {
     expect(1).toBe(1)
-  })
+  });
 
 // gets the test endpoint
 it('gets the test endpoint', async (done) => {
@@ -14,15 +16,49 @@ it('gets the test endpoint', async (done) => {
     expect(response.status).toBe(200)
     expect(response.body.message).toBe('pass!')
     done()
-  })
+  });
+});
 
-  //
-it('gets the artist endpoint', async (done) => {
-    const response = await request(app).get('/artists')
-  
-    expect(response.status).toBe(200)
-    done()
-  })
+
+  // 
+  describe('gets the SOMETHING endpoint', () => {
+
+    it('gets the ARTISTS endpoint', async (done) => {
+        const response = await request(app).get('/artists')
+      
+        expect(response.status).toBe(200)
+        done()
+      });
+
+    it('gets the ALBUMS endpoint', async (done) => {
+        const response = await request(app).get('/albums')
+      
+        expect(response.status).toBe(200)
+        done()
+      });
+
+    it('gets the SONG endpoint', async (done) => {
+        const response = await request(app).get('/songs')
+      
+        expect(response.status).toBe(200)
+        done()
+      });
+
+    it('gets the PLAYLIST endpoint', async (done) => {
+        const response = await request(app).get('/playlists')
+      
+        expect(response.status).toBe(200)
+        done()
+      });
+
+    it('gets the PLAYLIST SONGS endpoint', async (done) => {
+        const response = await request(app).get('/playlistsongs')
+      
+        expect(response.status).toBe(200)
+        done()
+      });
+  });
+
 
 describe('Can Add New Something', () => {
     it('can add new ARTIST', async (done) => {
