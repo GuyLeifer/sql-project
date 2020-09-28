@@ -13,5 +13,9 @@ app.get('/', (req, res) => {
   res.send('You entered to the Server Port!')
 })
 
+app.get('/test', async (req, res) => {
+  res.json({message: 'pass!'})
+})
+
 
 module.exports = app;
