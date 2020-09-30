@@ -1,6 +1,6 @@
 USE orm;
 
-INSERT INTO Artists(Name, Cover_img, Created_at, Upload_at) 
+INSERT INTO Artists(Name, Cover_img, createdAt, updatedAt) 
 VALUES
 ('Green Day', 'https://i.pinimg.com/originals/88/03/d7/8803d7ec675006ca7c23d244b7ff0104.jpg', '2011-03-13 02:53:50' , '2011-03-13 02:53:50' ),
 ('Coldplay', 'https://www.eventim.co.il/obj/media/IL-eventim/galery/222x222/c/coldplay-tickets.jpg', '2000-03-13 02:53:50' , '2002-03-13 02:53:50' ),
@@ -10,14 +10,14 @@ VALUES
 -- INSERT INTO Users(Name, Email, Created_at, Upload_at, Password, Is_Admin, Preferences, Remember_token) 
 -- VALUES(, , , , , , , );
 
-INSERT INTO Albums(Artist_id ,Name, Created_at, Upload_at, Cover_img) 
+INSERT INTO Albums(ArtistId ,Name, createdAt, updatedAt, Cover_img) 
 VALUES
 (1, 'American Idiot', '2004-09-01', '2004-09-01', 'https://upload.wikimedia.org/wikipedia/en/e/ed/Green_Day_-_American_Idiot_album_cover.png'),
 (3, 'Minutes to Midnight', '2007-05-09', '2007-05-09', 'https://upload.wikimedia.org/wikipedia/en/7/7a/Minutes_to_Midnight_cover.jpg'),
 (1, 'Father of All Motherfuckers', '2020-02-07', '2020-02-07', 'https://s3-us-west-1.amazonaws.com/static-spin-com/files/2020/02/69989279_10157590914134521_3911858824536915968_o-1580941206.jpg'),
 (4, 'מכאן ועד הנצח', '2020-04-12', '2020-04-12', 'https://i.ytimg.com/vi/NwDvbCkwGXo/hqdefault.jpg?sqp=-oaymwEXCNACELwBSFryq4qpAwkIARUAAIhCGAE=&rs=AOn4CLBPHrFL8o7GsLRROIxoFNPx-OtEhQ');
 
-INSERT INTO Songs(Album_id, Artist_id, Youtube_Link, Title, Length, Track_Number, Created_at, Upload_at, Lyrics) 
+INSERT INTO Songs(AlbumId, ArtistId, Youtube_Link, Title, Length, Track_Number, createdAt, updatedAt, Lyrics) 
 VALUES
 ('1','1','h6Z5N0Z6zH0', 'American Idiot' , '02:54', '1', '2013-01-01', '2013-01-01', 
 "Don't wanna be an American idiot
@@ -665,17 +665,17 @@ If i should fall…
 אבל צמאה נפשי אליך לבקש סליחה
 כי אין בי כלום בלי תורתך');
 
-INSERT INTO Playlists(Name, Cover_img, Created_at, Upload_at) 
+INSERT INTO Playlists(Name, Cover_img, createdAt, updatedAt) 
 VALUES
 ('Rock', 'https://cdn4.vectorstock.com/i/1000x1000/17/23/lets-rock-music-print-graphic-design-with-guitar-vector-23381723.jpg', '2020-04-12', '2020-04-12'),
 ('Rock_2', 'https://cdn1.vectorstock.com/i/1000x1000/18/00/lets-rock-music-print-graphic-design-with-guitar-vector-23381800.jpg', '2020-04-12', '2020-04-12'),
 ('Random Songs', 'https://upload.wikimedia.org/wikipedia/he/thumb/6/67/Sixteenth_notes_joined_01.svg/200px-Sixteenth_notes_joined_01.svg.png', '2020-04-12', '2020-04-12');
 
-INSERT INTO My_playlist_songs(Playlist_id, Song_id)
+INSERT INTO My_playlist_songs(PlaylistId, SongId, createdAt, updatedAt)
 VALUES
-(1,1), (1,2), (1,3),
-(2,6), (2,8), (2,10),
-(3,1), (3,5), (3,6), (3,8), (3,10), (3,13), (3,15), (3,17), (3,19), (3,21), (3,23), (3,2);
+(1,1, '2020-04-12', '2020-04-12'), (1,2, '2020-04-12', '2020-04-12'), (1,3, '2020-04-12', '2020-04-12'),
+(2,6, '2020-04-12', '2020-04-12'), (2,8, '2020-04-12', '2020-04-12'), (2,10, '2020-04-12', '2020-04-12'),
+(3,1, '2020-04-12', '2020-04-12'), (3,5, '2020-04-12', '2020-04-12'), (3,6, '2020-04-12', '2020-04-12'), (3,8, '2020-04-12', '2020-04-12'), (3,10, '2020-04-12', '2020-04-12'), (3,13, '2020-04-12', '2020-04-12'), (3,15, '2020-04-12', '2020-04-12'), (3,17, '2020-04-12', '2020-04-12'), (3,19, '2020-04-12', '2020-04-12'), (3,21, '2020-04-12', '2020-04-12'), (3,23, '2020-04-12', '2020-04-12'), (3,2, '2020-04-12', '2020-04-12');
 
 -- INSERT INTO Interactions(Username_id, Song_id, Is_liked, Play_count, Created_at) 
 -- VALUES(, , , , );

@@ -1,34 +1,23 @@
 'use strict';
 module.exports = {
   up: async (queryInterface, Sequelize) => {
-    await queryInterface.createTable('Songs', {
+    await queryInterface.createTable('interactions', {
       id: {
         allowNull: false,
         autoIncrement: true,
         primaryKey: true,
         type: Sequelize.INTEGER
       },
-      Title: {
+      UsernameId: {
         allowNull: false,
-        type: Sequelize.STRING
-      },
-      ArtistId: {
         type: Sequelize.INTEGER
       },
-      AlbumId: {
+      SongId: {
+        allowNull: false,
         type: Sequelize.INTEGER
       },
-      YouTube_Link: {
-        type: Sequelize.STRING
-      },
-      Length: {
-        type: Sequelize.STRING
-      },
-      Track_Number: {
-        type: Sequelize.INTEGER
-      },
-      Lyrics: {
-        type: Sequelize.STRING(8000)
+      is_liked: {
+        type: Sequelize.BOOLEAN
       },
       createdAt: {
         allowNull: false,
@@ -44,6 +33,6 @@ module.exports = {
     });
   },
   down: async (queryInterface, Sequelize) => {
-    await queryInterface.dropTable('Songs');
+    await queryInterface.dropTable('interactions');
   }
 };

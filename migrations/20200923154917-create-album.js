@@ -9,6 +9,7 @@ module.exports = {
         type: Sequelize.INTEGER
       },
       Name: {
+        allowNull: false,
         type: Sequelize.STRING
       },
       ArtistId: {
