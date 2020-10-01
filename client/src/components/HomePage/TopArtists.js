@@ -2,6 +2,7 @@ import React, { useEffect, useState } from 'react';
 import Carousel from 'styled-components-carousel';
 import axios from 'axios';
 import Artist from './Artist';
+import { Link } from 'react-router-dom';
 
 function TopArtists() {
     const [artists, setArtists] = useState([]);
@@ -20,7 +21,10 @@ function TopArtists() {
 
     return (
         <div className="topArtists">
-            <div className="topHeader">Top Artists</div>
+            <Link to='/top_artists'>
+                <div className="topHeader">Top Artists</div>
+            </Link>
+            
             <Carousel         
                 center
                 infinite

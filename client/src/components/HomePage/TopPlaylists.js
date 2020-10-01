@@ -2,6 +2,7 @@ import React, { useEffect, useState } from 'react';
 import Carousel from 'styled-components-carousel';
 import axios from 'axios';
 import Playlist from './Playlist';
+import { Link } from 'react-router-dom';
 
 function TopPlaylists() {
     const [playlists, setPlaylists] = useState([]);
@@ -20,7 +21,10 @@ function TopPlaylists() {
 
     return (
         <div className="topPlaylists">
-            <div className="topHeader">Top Playlists</div>
+            <Link to='/top_playlists'>
+                <div className="topHeader">Top Playlists</div>
+            </Link>
+
             <Carousel         
                 center
                 infinite

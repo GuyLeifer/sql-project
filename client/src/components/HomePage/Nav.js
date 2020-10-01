@@ -15,23 +15,14 @@ function Nav() {
             <Link style={navStyle} to='/'>
                     <li>Home</li>
                 </Link>
-                <Link style={navStyle} to='/top_songs'>
-                    <li>Top Songs</li>
-                </Link>
-                <Link style={navStyle} to='/top_artists'>
-                    <li>Top Artists</li>
-                </Link>
-                <Link style={navStyle} to='/top_albums'>
-                    <li>Top Albums</li>
-                </Link>
-                <Link style={navStyle} to='/Top_playlists'>
-                    <li>Top Playlists</li>
-                </Link>
                 <Link style={navStyle} to='/add'>
                     <li>Add</li>
                 </Link>
                 <Link style={navStyle} to='/about'>
                     <li>About</li>
+                </Link>
+                <Link style={navStyle} to='/account'>
+                    <li>Account</li>
                 </Link>
                 {/* <SearchBar /> */}
             </ul>

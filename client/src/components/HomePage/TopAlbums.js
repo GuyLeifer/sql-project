@@ -2,6 +2,7 @@ import React, { useEffect, useState } from 'react';
 import Carousel from 'styled-components-carousel';
 import axios from 'axios';
 import Album from './Album';
+import { Link } from 'react-router-dom';
 
 function TopAlbums() {
     const [albums, setAlbums] = useState([]);
@@ -20,7 +21,10 @@ function TopAlbums() {
 
     return (
         <div className="topAlbums">
-            <div className="topHeader">Top Albums</div>
+            <Link to='/top_albums'>
+                <div className="topHeader">Top Albums</div>
+            </Link>
+            
             <Carousel         
                 center
                 infinite

@@ -24,7 +24,7 @@
     max-height: 200px;
 }
 .login {
-    width: 200px;
+    width: 300px;
     margin: 0 auto;
     text-align: center;
     margin-bottom: 10px;
@@ -46,6 +46,42 @@
     box-shadow: 1px 1px 1px #EAEAEA;
     color: #333333;
     background: #F7F7F7;
+}
+.userLogin {
+    width: 300px;
+    margin: 0 auto;
+    text-align: center;
+    margin-bottom: 10px;
+    border: 1px solid rgb(73, 79, 82);
+}
+.userLogin input {
+    margin: 10px;
+    margin-top: 2px;
+}
+.userLogin input[type="submit"] {
+    margin: 20px;
+}
+.userLogin label {
+    margin: 10px;
+    margin-bottom: 2px;
+}
+.signUp {
+    width: 270px;
+    margin: 0 auto;
+    text-align: center;
+    margin-bottom: 10px;
+    border: 1px solid rgb(73, 79, 82);
+}
+.signUp input {
+    margin: 10px;
+    margin-top: 2px;
+}
+.signUp input[type="submit"] {
+    margin: 20px;
+}
+.signUp label {
+    margin: 10px;
+    margin-bottom: 2px;
 }
 .topSongs {
     flex: 25%;
@@ -146,8 +182,11 @@ nav {
     background: rgb(73, 79, 82);
     color: white;
 }
+.nav-links a:hover {
+    font-weight: 600;
+}
 .nav-links {
-    width: 70%;
+    width: 50%;
     display: flex;
     justify-content: space-around;
     align-items: center;
@@ -342,4 +381,40 @@ form textarea {
 }
 #searchForm {
     text-align: center;
+}
+.Modal {
+    position: absolute;
+    top: 10px;
+    left: 10px;
+    right: 10px;
+    bottom: 10px;
+    color: white;
+    background-color:rgb(73, 79, 82);
+    text-align: center;
+  }
+  .Overlay {
+    position: fixed;
+    top: 370px;
+    left: 370px;
+    right: 370px;
+    bottom: 370px;
+    background-color:rgb(21, 23, 24);
+  }
+  .Modal button {
+    color: #444444;
+    background: #F3F3F3;
+    border: 1px rgb(73, 79, 82) solid;
+    padding: 5px 10px;
+    margin-top: 20px;
+    margin-bottom: 10px;
+    border-radius: 2px;
+    font-weight: bold;
+    font-size: 9pt;
+    outline: none;
+}
+.Modal button:hover {
+    border: 1px #444444 solid;
+    box-shadow: 1px 1px 1px #EAEAEA;
+    color: #333333;
+    background: #F7F7F7;
 }

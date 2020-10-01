@@ -1,7 +1,9 @@
-import React, { useState } from 'react';
+import React from 'react';
 import './App.css';
 import Header from './components/Header';
-// import Login from './components/Login';
+import Login from './components/Account/Login';
+import UserLogin from './components/Account/UserLogin';
+import UserSignUp from './components/Account/UserSignUp';
 import HomePage from './components/HomePage/HomePage';
 import Nav from './components/HomePage/Nav';
 import About from './components/HomePage/About';
@@ -27,7 +29,6 @@ function App() {
     <Router>
       <Nav />
       <Header />
-      {/* <Login /> */}
       <Switch>
         <Route path="/" exact component = {HomePage} />
         <Route path="/about" exact component = {About} />
@@ -45,6 +46,9 @@ function App() {
         <Route path="/add/song" exact component = {AddSong}/>
         <Route path="/add/playlist" exact component = {AddPlaylist}/>
         <Route path="/search" exact component = {Search}/>
+        <Route path="/account" exact component = {Login}/>
+        <Route path="/account/login" exact component = {UserLogin}/>
+        <Route path="/account/signup" exact component = {UserSignUp}/>
         <Route path='*' exact={true} status={404} component={GenericNotFound}/>
       </Switch>
     </Router>
